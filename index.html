@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Tapioca - O Segredo de Mani</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #fffaf0, #f5f5dc);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  width: 90%;
+  max-width: 650px;
+  background: #fffdf7;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  text-align: center;
+  position: relative;
+  margin: 20px 0;
+}
+
+.tela {
+  display: none;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+}
+
+.ativa {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+button {
+  width: 100%;
+  margin: 8px 0;
+  padding: 12px;
+  border-radius: 12px;
+  background: #f3e5ab;
+  color: #5d4037;
+  font-weight: 600;
+  cursor: pointer;
+  border: 2px solid #e0c97f;
+  transition: 0.25s;
+  font-size: 14px;
+  text-align: left;
+}
+
+button:hover {
+  transform: scale(1.02);
+  background: #e8d595;
+}
+
+.start {
+  background: #d7ccc8;
+  text-align: center;
+}
+
+.voltar {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: auto;
+  padding: 8px 15px;
+}
+
+.barra {
+  height: 8px;
+  background: #eee;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.progresso {
+  height: 100%;
+  background: #bcaaa4;
+  width: 0%;
+  border-radius: 10px;
+  transition: width 0.3s ease;
+}
+
+.resultado {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+h2 {
+  color: #5d4037;
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.pergunta-texto {
+  font-size: 16px;
+  margin-bottom: 15px;
+  color: #3e2723;
+}
+
+.creditos-conteudo {
+  text-align: left;
+  margin: 20px 0;
+  line-height: 1.8;
+}
+
+.story-box {
+  background: rgba(188, 170, 164, 0.1);
+  padding: 20px;
+  border-radius: 15px;
+  margin: 20px 0;
+  text-align: left;
+  border-left: 4px solid #bcaaa4;
+  max-height: 350px;
+  overflow-y: auto;
+}
+
+.story-box p {
+  margin: 12px 0;
+  line-height: 1.6;
+}
+
+.destaque {
+  color: #8d6e63;
+  font-weight: 600;
+  font-style: italic;
+}
+</style>
+</head>
+
+<body>
+
+<!-- MENU -->
+<div class="container tela ativa" id="menu">
+  <h1>🥥 O Segredo de Mani</h1>
+  <p>Uma jornada pela ciência e pela lenda indígena da mandioca</p>
+
+  <button class="start" onclick="iniciarJogo()">▶ Iniciar Jornada</button>
+  <button onclick="abrirCreditos()">📜 Créditos</button>
+</div>
+
+<!-- CRÉDITOS -->
+<div class="container tela" id="creditos">
+  <button class="voltar" onclick="voltarMenu()">⬅ Voltar</button>
+  <h1>📜 Créditos</h1>
+  <div class="creditos-conteudo">
+    <p><strong>O Segredo de Mani</strong></p>
+    <p>Jogo educativo baseado na lenda indígena da mandioca.</p>
+    <br>
+    <p><strong>Desenvolvimento:</strong> Quiz interativo sobre a ciência da tapioca</p>
+    <p><strong>Conteúdo científico:</strong> Gelatinização do amido, calorimetria e transformações físico-químicas</p>
+    <p><strong>Referência cultural:</strong> Lenda de Mani - patrimônio imaterial dos povos originários do Brasil</p>
+    <br>
+    <p>🌟 <em>"Mani" significa mandioca em tupi-guarani.</em></p>
+    <p>📚 Baseado na tradição oral dos povos indígenas que habitavam o território brasileiro.</p>
+  </div>
+  <button onclick="voltarMenu()">🏠 Voltar ao Menu</button>
+</div>
+
+<!-- JOGO -->
+<div class="container tela" id="jogo">
+
+<div class="barra">
+  <div class="progresso" id="progresso"></div>
+</div>
+
+<!-- TELA 1 - Introdução com a história completa de Mani -->
+<div class="tela ativa" id="tela1">
+<h1>🌿 A Lenda de Mani</h1>
+<div class="story-box">
+  <p>Há muito tempo, entre os povos indígenas que habitavam o território que hoje conhecemos como Brasil, existia uma história que atravessou gerações: <strong>a história de Mani</strong>.</p>
+  
+  <p>Conta-se que Mani era uma criança diferente, de pele muito clara, que nasceu em uma aldeia e chamou a atenção de todos. Ela cresceu cercada de cuidado e curiosidade, até que, de forma inesperada, adoeceu e faleceu ainda muito jovem.</p>
+  
+  <p>De acordo com a tradição, ela foi enterrada dentro da própria oca. Com o passar dos dias, algo extraordinário aconteceu: <strong>nasceu uma planta desconhecida</strong>.</p>
+  
+  <p>Ao cavarem a terra, encontraram uma raiz branca e abundante: a mandioca, que muitos acreditam significar <strong>"casa de Mani"</strong> (mani + oca).</p>
+  
+  <p>Os povos perceberam que ela poderia ser perigosa se consumida de forma inadequada, sendo necessário observar, testar e transformar. Com o tempo, descobriram que dela era possível extrair um pó branco que, ao ser aquecido, se transformava em uma massa firme: <strong>a tapioca</strong>.</p>
+  
+  <p>Mesmo sem instrumentos modernos, desenvolveram conhecimentos baseados na observação e experimentação — princípios que hoje chamamos de científicos.</p>
+  
+  <p class="destaque">✨ Mas como um simples pó se transforma em algo sólido com o calor? Agora é sua missão investigar esse mistério! ✨</p>
+</div>
+<button onclick="proximaTela()">🌱 Começar Investigação Científica</button>
+</div>
+
+<!-- PERGUNTA 1 -->
+<div class="tela" id="tela2">
+<h2>Pergunta 1 de 14</h2>
+<p class="pergunta-texto">Por que a tapioca não apresenta coesão antes do aquecimento?</p>
+<button onclick="responder(false, 1, 'Por que a tapioca não apresenta coesão antes do aquecimento?', 'Porque o ar frio da despensa contrai os grânulos, deixando-os tão pequenos que eles não conseguem se tocar para grudar uns nos outros.', 'Porque as partículas de amido estão hidratadas, mas ainda não sofreram gelatinização; as ligações de hidrogênio entre as cadeias poliméricas permanecem rígidas e não há formação de rede viscoelástica contínua.')">A) Porque o ar frio da despensa contrai os grânulos, deixando-os tão pequenos que eles não conseguem se tocar para grudar uns nos outros.</button>
+<button onclick="responder(true, 1, 'Por que a tapioca não apresenta coesão antes do aquecimento?', 'Porque as partículas de amido estão hidratadas, mas ainda não sofreram gelatinização; as ligações de hidrogênio entre as cadeias poliméricas permanecem rígidas e não há formação de rede viscoelástica contínua.', 'Porque as partículas de amido estão hidratadas, mas ainda não sofreram gelatinização; as ligações de hidrogênio entre as cadeias poliméricas permanecem rígidas e não há formação de rede viscoelástica contínua.')">B) Porque as partículas de amido estão hidratadas, mas ainda não sofreram gelatinização; as ligações de hidrogênio entre as cadeias poliméricas permanecem rígidas e não há formação de rede viscoelástica contínua.</button>
+<button onclick="responder(false, 1, 'Por que a tapioca não apresenta coesão antes do aquecimento?', 'Porque a tapioca é composta de pequenos cristais de gelo seco que só derretem e viram cola quando entram em contato com uma frigideira quente.', 'Porque as partículas de amido estão hidratadas, mas ainda não sofreram gelatinização; as ligações de hidrogênio entre as cadeias poliméricas permanecem rígidas e não há formação de rede viscoelástica contínua.')">C) Porque a tapioca é composta de pequenos cristais de gelo seco que só derretem e viram cola quando entram em contato com uma frigideira quente.</button>
+<button onclick="responder(false, 1, 'Por que a tapioca não apresenta coesão antes do aquecimento?', 'Porque antes de aquecer, o pó está "dormindo" e suas partículas não receberam o comando do cérebro da mandioca para se unirem.', 'Porque as partículas de amido estão hidratadas, mas ainda não sofreram gelatinização; as ligações de hidrogênio entre as cadeias poliméricas permanecem rígidas e não há formação de rede viscoelástica contínua.')">D) Porque antes de aquecer, o pó está "dormindo" e suas partículas não receberam o comando do cérebro da mandioca para se unirem.</button>
+</div>
+
+<!-- PERGUNTA 2 -->
+<div class="tela" id="tela3">
+<h2>Pergunta 2 de 14</h2>
+<p class="pergunta-texto">A tapioca é formada principalmente por:</p>
+<button onclick="responder(false, 2, 'A tapioca é formada principalmente por:', 'Proteínas', 'Amido')">A) Proteínas</button>
+<button onclick="responder(false, 2, 'A tapioca é formada principalmente por:', 'Lipídios', 'Amido')">B) Lipídios</button>
+<button onclick="responder(true, 2, 'A tapioca é formada principalmente por:', 'Amido', 'Amido')">C) Amido</button>
+<button onclick="responder(false, 2, 'A tapioca é formada principalmente por:', 'Sais minerais', 'Amido')">D) Sais minerais</button>
+</div>
+
+<!-- PERGUNTA 3 -->
+<div class="tela" id="tela4">
+<h2>Pergunta 3 de 14</h2>
+<p class="pergunta-texto">O amido é um tipo de:</p>
+<button onclick="responder(false, 3, 'O amido é um tipo de:', 'Proteína fibrosa', 'Carboidrato')">A) Proteína fibrosa</button>
+<button onclick="responder(true, 3, 'O amido é um tipo de:', 'Carboidrato', 'Carboidrato')">B) Carboidrato</button>
+<button onclick="responder(false, 3, 'O amido é um tipo de:', 'Lipídio saturado', 'Carboidrato')">C) Lipídio saturado</button>
+<button onclick="responder(false, 3, 'O amido é um tipo de:', 'Vitamina hidrossolúvel', 'Carboidrato')">D) Vitamina hidrossolúvel</button>
+</div>
+
+<!-- PERGUNTA 4 -->
+<div class="tela" id="tela5">
+<h2>Pergunta 4 de 14</h2>
+<p class="pergunta-texto">Qual fator principal permite a transformação da tapioca?</p>
+<button onclick="responder(false, 4, 'Qual fator principal permite a transformação da tapioca?', 'Água', 'Água e calor')">A) Água</button>
+<button onclick="responder(false, 4, 'Qual fator principal permite a transformação da tapioca?', 'Calor', 'Água e calor')">B) Calor</button>
+<button onclick="responder(true, 4, 'Qual fator principal permite a transformação da tapioca?', 'Água e calor', 'Água e calor')">C) Água e calor</button>
+<button onclick="responder(false, 4, 'Qual fator principal permite a transformação da tapioca?', 'Pressão', 'Água e calor')">D) Pressão</button>
+</div>
+
+<!-- PERGUNTA 5 -->
+<div class="tela" id="tela6">
+<h2>Pergunta 5 de 14</h2>
+<p class="pergunta-texto">O que acontece com as partículas ao aquecer?</p>
+<button onclick="responder(true, 5, 'O que acontece com as partículas ao aquecer?', 'Os grânulos de amido absorvem água, incham progressivamente e têm sua estrutura cristalina rompida, liberando cadeias de amilose e amilopectina que se entrelaçam e aumentam a viscosidade do sistema.', 'Os grânulos de amido absorvem água, incham progressivamente e têm sua estrutura cristalina rompida, liberando cadeias de amilose e amilopectina que se entrelaçam e aumentam a viscosidade do sistema.')">A) Os grânulos de amido absorvem água, incham progressivamente e têm sua estrutura cristalina rompida, liberando cadeias de amilose e amilopectina que se entrelaçam e aumentam a viscosidade do sistema.</button>
+<button onclick="responder(false, 5, 'O que acontece com as partículas ao aquecer?', 'As partículas se assustam com o calor e começam a correr em círculos muito rápidos, batendo umas nas outras até se cansarem e ficarem paradas no formato de um disco.', 'Os grânulos de amido absorvem água, incham progressivamente e têm sua estrutura cristalina rompida, liberando cadeias de amilose e amilopectina que se entrelaçam e aumentam a viscosidade do sistema.')">B) As partículas se assustam com o calor e começam a correr em círculos muito rápidos, batendo umas nas outras até se cansarem e ficarem paradas no formato de um disco.</button>
+<button onclick="responder(false, 5, 'O que acontece com as partículas ao aquecer?', 'Elas derretem como se fossem manteiga ou chocolate, formando um líquido amarelo que depois endurece por mágica.', 'Os grânulos de amido absorvem água, incham progressivamente e têm sua estrutura cristalina rompida, liberando cadeias de amilose e amilopectina que se entrelaçam e aumentam a viscosidade do sistema.')">C) Elas derretem como se fossem manteiga ou chocolate, formando um líquido amarelo que depois endurece por mágica.</button>
+<button onclick="responder(false, 5, 'O que acontece com as partículas ao aquecer?', 'O calor faz as partículas se dividirem ao meio infinitamente, criando partículas cada vez menores que somem no ar, deixando a frigideira vazia.', 'Os grânulos de amido absorvem água, incham progressivamente e têm sua estrutura cristalina rompida, liberando cadeias de amilose e amilopectina que se entrelaçam e aumentam a viscosidade do sistema.')">D) O calor faz as partículas se dividirem ao meio infinitamente, criando partículas cada vez menores que somem no ar, deixando a frigideira vazia.</button>
+</div>
+
+<!-- PERGUNTA 6 -->
+<div class="tela" id="tela7">
+<h2>Pergunta 6 de 14</h2>
+<p class="pergunta-texto">O aumento da temperatura provoca:</p>
+<button onclick="responder(false, 6, 'O aumento da temperatura provoca:', 'Diminuição do movimento', 'Aumento da energia cinética')">A) Diminuição do movimento</button>
+<button onclick="responder(true, 6, 'O aumento da temperatura provoca:', 'Aumento da energia cinética', 'Aumento da energia cinética')">B) Aumento da energia cinética</button>
+<button onclick="responder(false, 6, 'O aumento da temperatura provoca:', 'Solidificação', 'Aumento da energia cinética')">C) Solidificação</button>
+<button onclick="responder(false, 6, 'O aumento da temperatura provoca:', 'Evaporação total', 'Aumento da energia cinética')">D) Evaporação total</button>
+</div>
+
+<!-- PERGUNTA 7 -->
+<div class="tela" id="tela8">
+<h2>Pergunta 7 de 14</h2>
+<p class="pergunta-texto">O processo de transformação do amido com calor e água chama-se:</p>
+<button onclick="responder(false, 7, 'O processo chama-se:', 'Caramelização', 'Gelatinização')">A) Caramelização</button>
+<button onclick="responder(false, 7, 'O processo chama-se:', 'Fermentação', 'Gelatinização')">B) Fermentação</button>
+<button onclick="responder(false, 7, 'O processo chama-se:', 'Putrefação', 'Gelatinização')">C) Putrefação</button>
+<button onclick="responder(true, 7, 'O processo chama-se:', 'Gelatinização', 'Gelatinização')">D) Gelatinização</button>
+</div>
+
+<!-- PERGUNTA 8 -->
+<div class="tela" id="tela9">
+<h2>Pergunta 8 de 14</h2>
+<p class="pergunta-texto">Qual o papel da água nesse processo?</p>
+<button onclick="responder(false, 8, 'Qual o papel da água nesse processo?', 'A água serve apenas para lavar a sujeira do pó. Toda ela evapora no primeiro segundo e não participa de nada que acontece depois na frigideira.', 'Atuar como plastificante, facilitando a mobilidade das cadeias poliméricas do amido e participando das pontes de hidrogênio que estabilizam a nova matriz sólida após o resfriamento.')">A) A água serve apenas para lavar a sujeira do pó. Toda ela evapora no primeiro segundo e não participa de nada que acontece depois na frigideira.</button>
+<button onclick="responder(true, 8, 'Qual o papel da água nesse processo?', 'Atuar como plastificante, facilitando a mobilidade das cadeias poliméricas do amido e participando das pontes de hidrogênio que estabilizam a nova matriz sólida após o resfriamento.', 'Atuar como plastificante, facilitando a mobilidade das cadeias poliméricas do amido e participando das pontes de hidrogênio que estabilizam a nova matriz sólida após o resfriamento.')">B) Atuar como plastificante, facilitando a mobilidade das cadeias poliméricas do amido e participando das pontes de hidrogênio que estabilizam a nova matriz sólida após o resfriamento.</button>
+<button onclick="responder(false, 8, 'Qual o papel da água nesse processo?', 'A água se transforma em pequenas molas invisíveis que empurram os grãos de amido para ficarem bem juntinhos e não se soltarem mais.', 'Atuar como plastificante, facilitando a mobilidade das cadeias poliméricas do amido e participando das pontes de hidrogênio que estabilizam a nova matriz sólida após o resfriamento.')">C) A água se transforma em pequenas molas invisíveis que empurram os grãos de amido para ficarem bem juntinhos e não se soltarem mais.</button>
+<button onclick="responder(false, 8, 'Qual o papel da água nesse processo?', 'A água na verdade atrapalha o processo, por isso os melhores cozinheiros fazem tapioca com o pó completamente seco para ela ficar bem durinha.', 'Atuar como plastificante, facilitando a mobilidade das cadeias poliméricas do amido e participando das pontes de hidrogênio que estabilizam a nova matriz sólida após o resfriamento.')">D) A água na verdade atrapalha o processo, por isso os melhores cozinheiros fazem tapioca com o pó completamente seco para ela ficar bem durinha.</button>
+</div>
+
+<!-- PERGUNTA 9 -->
+<div class="tela" id="tela10">
+<h2>Pergunta 9 de 14</h2>
+<p class="pergunta-texto">Durante o aquecimento, a água:</p>
+<button onclick="responder(false, 9, 'Durante o aquecimento, a água:', 'Não interfere', 'Ajuda na reorganização')">A) Não interfere</button>
+<button onclick="responder(true, 9, 'Durante o aquecimento, a água:', 'Ajuda na reorganização', 'Ajuda na reorganização')">B) Ajuda na reorganização</button>
+<button onclick="responder(false, 9, 'Durante o aquecimento, a água:', 'Desaparece', 'Ajuda na reorganização')">C) Desaparece</button>
+<button onclick="responder(false, 9, 'Durante o aquecimento, a água:', 'Impede reação', 'Ajuda na reorganização')">D) Impede reação</button>
+</div>
+
+<!-- PERGUNTA 10 -->
+<div class="tela" id="tela11">
+<h2>Pergunta 10 de 14</h2>
+<p class="pergunta-texto">Explique a gelatinização.</p>
+<button onclick="responder(false, 10, 'Explique a gelatinização.', 'Gelatinização é quando a gente mistura gelatina de morango com farinha de tapioca para fazer um pudim colorido e brilhante que balança no prato.', 'É o fenômeno de transição irreversível no qual os grânulos de amido, em meio aquoso e sob aquecimento, intumescem, perdem sua cristalinidade e lixiviam polímeros de amilose e amilopectina, formando uma pasta viscosa que se reorganiza em gel ao resfriar.')">A) Gelatinização é quando a gente mistura gelatina de morango com farinha de tapioca para fazer um pudim colorido e brilhante que balança no prato.</button>
+<button onclick="responder(false, 10, 'Explique a gelatinização.', 'É o nome chique para "ficar gelado". A tapioca esfria tão rápido que os cientistas inventaram essa palavra para descrever o frio que ela sente saindo da panela.', 'É o fenômeno de transição irreversível no qual os grânulos de amido, em meio aquoso e sob aquecimento, intumescem, perdem sua cristalinidade e lixiviam polímeros de amilose e amilopectina, formando uma pasta viscosa que se reorganiza em gel ao resfriar.')">B) É o nome chique para "ficar gelado". A tapioca esfria tão rápido que os cientistas inventaram essa palavra para descrever o frio que ela sente saindo da panela.</button>
+<button onclick="responder(true, 10, 'Explique a gelatinização.', 'É o fenômeno de transição irreversível no qual os grânulos de amido, em meio aquoso e sob aquecimento, intumescem, perdem sua cristalinidade e lixiviam polímeros de amilose e amilopectina, formando uma pasta viscosa que se reorganiza em gel ao resfriar.', 'É o fenômeno de transição irreversível no qual os grânulos de amido, em meio aquoso e sob aquecimento, intumescem, perdem sua cristalinidade e lixiviam polímeros de amilose e amilopectina, formando uma pasta viscosa que se reorganiza em gel ao resfriar.')">C) É o fenômeno de transição irreversível no qual os grânulos de amido, em meio aquoso e sob aquecimento, intumescem, perdem sua cristalinidade e lixiviam polímeros de amilose e amilopectina, formando uma pasta viscosa que se reorganiza em gel ao resfriar.</button>
+<button onclick="responder(false, 10, 'Explique a gelatinização.', 'É o momento exato em que a tapioca para de ser farinha e vira um plástico natural, porque o calor faz o amido se transformar em petróleo vegetal.', 'É o fenômeno de transição irreversível no qual os grânulos de amido, em meio aquoso e sob aquecimento, intumescem, perdem sua cristalinidade e lixiviam polímeros de amilose e amilopectina, formando uma pasta viscosa que se reorganiza em gel ao resfriar.')">D) É o momento exato em que a tapioca para de ser farinha e vira um plástico natural, porque o calor faz o amido se transformar em
